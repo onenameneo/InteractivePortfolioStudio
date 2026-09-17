@@ -1,0 +1,158 @@
+/* Shared interaction rhythm, including touch and keyboard feedback. */
+:root {
+  --control-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+button,
+:is(.solid-button, .outline-button, .header-contact, .icon-btn),
+a:is(.solid-button, .outline-button, .text-link, .email-link),
+.contact-links a,
+.admin-sidebar-bottom a {
+  transition:
+    background-color 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease,
+    opacity 180ms ease,
+    transform 240ms var(--control-ease);
+}
+button .ui-icon,
+a .ui-icon {
+  transition: transform 240ms var(--control-ease);
+}
+/* Keep chapter labels mounted so the pill can expand without a layout jump. */
+.chapter-dock button {
+  column-gap: 0;
+}
+.chapter-dock button > b,
+.chapter-dock button.active > b {
+  display: block;
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  margin-left: 0;
+  transition:
+    max-width 280ms var(--control-ease),
+    margin-left 280ms var(--control-ease),
+    opacity 180ms ease;
+}
+.chapter-dock button.active > b {
+  max-width: 80px;
+  margin-left: 8px;
+  opacity: 1;
+}
+.immersive .scene-controls button[aria-pressed="true"],
+.email-row button[data-success="true"] {
+  background: #3e5948;
+  color: #fffef1;
+  border-color: #3e5948;
+}
+.scene-controls .ui-icon,
+.email-row button .ui-icon {
+  animation: control-icon-in 260ms var(--control-ease) both;
+}
+@keyframes control-icon-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7) rotate(-15deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  :is(.solid-button, .outline-button, .header-contact, .icon-btn):not(
+      :disabled
+    ):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px #2e352c14;
+  }
+  .outline-button:not(:disabled):hover,
+  .header-contact:hover,
+  .immersive .scene-controls button:not([aria-pressed="true"]):hover {
+    background-color: #e5e8dc;
+    border-color: #93a187;
+  }
+  :is(
+      .solid-button,
+      .outline-button,
+      .header-contact,
+      .text-link
+    ):hover
+    .lucide-arrow-up-right {
+    transform: translate(2px, -2px);
+  }
+  .text-link:hover .lucide-arrow-down {
+    transform: translateY(3px);
+  }
+  .contact-links .contact-link:hover {
+    color: #2e4434;
+  }
+  .contact-links .contact-link:hover > .ui-icon,
+  .contact-links .contact-link:focus-visible > .ui-icon {
+    opacity: 1;
+    transform: translate(2px, -2px) scale(1);
+  }
+  .chapter-dock button:not(.active):hover,
+  .admin-sidebar nav button:not(.active):hover {
+    background-color: #e5e8dc;
+    color: #3e5948;
+  }
+  .delete-button:not(:disabled):hover {
+    background-color: #f3e2da;
+    color: #914c36;
+    border-radius: 4px;
+  }
+  .admin-sidebar-bottom :is(a, button):hover,
+  .contact-links a:hover {
+    color: #3e5948;
+  }
+}
+button:not(:disabled):active,
+:is(.solid-button, .outline-button, .header-contact, .icon-btn):not(
+    :disabled
+  ):active,
+a:is(.solid-button, .outline-button, .text-link):active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow: none;
+  transition-duration: 80ms;
+}
+button:disabled {
+  transform: none;
+  box-shadow: none;
+}
+button[aria-busy="true"] .ui-icon {
+  animation: control-working 900ms ease-in-out infinite alternate;
+}
+@keyframes control-working {
+  from {
+    opacity: 0.45;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (hover: none) {
+  .solid-button:not(:disabled):hover {
+    background: #3e5948;
+    transform: none;
+  }
+  .solid-button:not(:disabled):active {
+    background: #2c4536;
+    transform: scale(0.97);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  button:not(:disabled):is(:hover, :active),
+  a:is(.solid-button, .outline-button, .text-link):is(:hover, :active),
+  button .ui-icon,
+  a .ui-icon {
+    transform: none !important;
+  }
+}

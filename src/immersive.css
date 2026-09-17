@@ -1,0 +1,405 @@
+/* A single, viewport-sized world underneath the whole narrative. */
+.site.immersive {
+  isolation: isolate;
+  background: #ede9dc;
+}
+.immersive .scene-stage {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  min-height: 0;
+  max-height: none;
+  z-index: 0;
+  background: radial-gradient(ellipse at 55% 50%, #f3efdf, #e3e0d2);
+  border: 0;
+  box-shadow: none;
+  overflow: hidden;
+}
+.immersive .room-render {
+  inset: 0;
+  z-index: 1;
+}
+.immersive .scene-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, #f4f1e6b8 0%, #f4f1e635 34%, transparent 57%),
+    linear-gradient(0deg, #ede9dca6, transparent 15%);
+}
+.immersive[data-chapter="1"] .scene-stage::after,
+.immersive[data-chapter="3"] .scene-stage::after {
+  background:
+    linear-gradient(270deg, #f4f1e6b8 0%, #f4f1e635 34%, transparent 57%),
+    linear-gradient(0deg, #ede9dca6, transparent 15%);
+}
+.immersive .scene-lettering {
+  display: none;
+}
+.immersive .scene-topline {
+  top: 115px;
+  left: auto;
+  right: 5%;
+  gap: 24px;
+  z-index: 3;
+}
+.immersive .scene-topline > span:last-child {
+  display: none;
+}
+.immersive .scene-caption {
+  bottom: 30px;
+  left: 5%;
+  right: 5%;
+  padding: 0;
+  border: 0;
+  z-index: 4;
+  pointer-events: none;
+}
+.immersive .scene-caption > div:first-child {
+  display: flex;
+}
+.immersive .scene-caption small {
+  color: #65725c;
+}
+.immersive .scene-number {
+  color: #798769;
+}
+.immersive .scene-controls {
+  pointer-events: auto;
+  flex-direction: row;
+  gap: 8px;
+}
+.immersive .scene-controls button {
+  width: 38px;
+  height: 38px;
+  background: #f5f2eaca;
+  backdrop-filter: blur(8px);
+}
+.immersive .scene-hint {
+  display: none;
+}
+.immersive .site-header {
+  background: transparent;
+  height: 88px;
+  margin: 0 5%;
+  border-color: #aab49a40;
+  text-shadow: 0 1px 12px #f5f2ea;
+}
+.immersive .site-header nav {
+  padding: 0 22px;
+  gap: 27px;
+  background: #f5f2eabf;
+  border-radius: 30px;
+  backdrop-filter: blur(12px);
+}
+.immersive .header-contact {
+  background: #f5f2eaaf;
+  backdrop-filter: blur(8px);
+}
+.immersive .story-content {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.immersive .story-section,
+.immersive .story-section:not(.hero) {
+  display: block;
+  position: relative;
+  width: 100%;
+  min-height: 130svh;
+  padding: 20svh 6vw 30svh;
+  pointer-events: none;
+}
+.immersive .chapter-panel {
+  position: relative;
+  width: min(480px, 39vw);
+  padding: 30px;
+  border: 1px solid #ffffff65;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f8f6eeeb, #f4f1e7bd);
+  box-shadow: 0 20px 70px #3f482e0c;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  pointer-events: auto;
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.55s ease,
+    transform 0.65s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.immersive .chapter-panel.in-view,
+.immersive .chapter-panel:focus-within {
+  opacity: 1;
+  transform: none;
+}
+.immersive .story-section:nth-child(even) .chapter-panel {
+  margin-left: auto;
+}
+.immersive .hero .chapter-panel {
+  width: min(570px, 43vw);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  padding: 0;
+  text-shadow: 0 2px 25px #f5f2eab3;
+}
+.immersive .hero h1 {
+  font-size: clamp(52px, 5.9vw, 88px);
+}
+.immersive .hero .intro-text {
+  max-width: 360px;
+}
+.immersive .hero .demo-note {
+  display: block;
+}
+.immersive .hero .scroll-prompt {
+  margin-top: 35px;
+}
+.immersive .story-section h2 {
+  font-size: clamp(44px, 4.5vw, 66px);
+}
+.immersive .section-kicker {
+  margin-bottom: 26px;
+  padding-top: 0;
+  border: 0;
+  font-size: 8px;
+}
+.immersive .section-intro {
+  margin-bottom: 30px;
+}
+.immersive .project-art {
+  height: 190px;
+}
+.immersive .project-list {
+  gap: 32px;
+}
+.immersive .project-heading h3 {
+  font-size: 15px;
+}
+.immersive .project-card > p {
+  font-size: 12px;
+}
+.immersive .timeline p {
+  font-size: 12px;
+}
+.immersive .timeline-dot {
+  box-shadow: none;
+}
+.immersive .about-note {
+  background: #dce4cf80;
+}
+.immersive .tags > span {
+  background: #dce4cf99;
+}
+.immersive .interests {
+  gap: 12px;
+}
+.immersive .contact footer {
+  margin-bottom: 0;
+}
+.immersive .chapter-dock {
+  bottom: 24px;
+}
+.immersive.night .scene-stage {
+  background: radial-gradient(ellipse at 55% 50%, #c5c6b9, #b2b8ab);
+}
+.immersive.night .chapter-panel {
+  background: linear-gradient(135deg, #f1f1e8e8, #e7e9dec7);
+}
+.immersive.night .hero .chapter-panel {
+  background: transparent;
+}
+.immersive .room-fallback img {
+  width: 80%;
+  max-height: 90%;
+  margin-left: 22%;
+}
+.immersive .room-fallback span {
+  bottom: 100px;
+}
+@media (max-width: 1100px) and (min-width: 901px) {
+  .immersive .chapter-panel {
+    width: 43vw;
+    padding: 25px;
+  }
+  .immersive .story-section {
+    padding-left: 4vw;
+    padding-right: 4vw;
+  }
+  .immersive .hero h1 {
+    font-size: 57px;
+  }
+  .immersive .scene-caption small {
+    display: none;
+  }
+}
+@media (max-width: 900px) {
+  .immersive .site-header {
+    height: 72px;
+    margin: 0 6%;
+  }
+  .immersive .site-header nav {
+    display: none;
+  }
+  .immersive .scene-topline {
+    top: 88px;
+    right: 6%;
+    font-size: 6px;
+  }
+  .immersive .scene-stage {
+    height: 100dvh;
+  }
+  .immersive .scene-stage::after,
+  .immersive[data-chapter="1"] .scene-stage::after,
+  .immersive[data-chapter="3"] .scene-stage::after {
+    background: linear-gradient(
+      0deg,
+      #efece2cc,
+      #efece240 45%,
+      transparent 68%
+    );
+  }
+  .immersive .story-content {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  .immersive .story-section,
+  .immersive .story-section:not(.hero) {
+    min-height: 145svh;
+    padding: 42svh 6% 35svh;
+  }
+  .immersive .chapter-panel,
+  .immersive .hero .chapter-panel {
+    width: 100%;
+    padding: 25px 22px;
+    border-radius: 12px;
+    border: 1px solid #ffffff73;
+    background: linear-gradient(135deg, #f8f6eee0, #f4f1e7b8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 12px 45px #3f482e0a;
+    text-shadow: none;
+  }
+  .immersive .hero h1 {
+    font-size: clamp(38px, 10.3vw, 60px);
+    margin: 18px 0 24px;
+    letter-spacing: -1.7px;
+  }
+  .immersive .hero .intro-text {
+    max-width: none;
+  }
+  .immersive .hero .hero-actions {
+    gap: 18px;
+  }
+  .immersive .hero .scroll-prompt {
+    margin-top: 24px;
+  }
+  .immersive .hero .eyebrow {
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+  .immersive .story-section h2 {
+    font-size: 46px;
+  }
+  .immersive .project-art {
+    height: 180px;
+  }
+  .immersive .scene-caption {
+    left: auto;
+    right: 5%;
+    bottom: auto;
+    top: 123px;
+  }
+  .immersive .scene-caption > div:first-child {
+    display: none;
+  }
+  .immersive .scene-controls {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .immersive .scene-controls button {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
+  .immersive .chapter-dock {
+    bottom: calc(13px + env(safe-area-inset-bottom));
+  }
+  .immersive .email-link {
+    font-size: clamp(20px, 5.8vw, 30px);
+  }
+  .immersive .interests {
+    grid-template-columns: 1fr;
+  }
+  .immersive .interests article {
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    column-gap: 10px;
+  }
+  .immersive .interests article > span {
+    grid-row: span 2;
+  }
+  .immersive .interests h4 {
+    margin-top: 4px;
+  }
+  .immersive .interests p {
+    grid-column: 2;
+  }
+  .immersive .room-fallback img {
+    width: 100%;
+    margin: 0;
+    position: absolute;
+    top: 5%;
+    height: 48%;
+  }
+  .immersive .room-fallback span {
+    bottom: auto;
+    top: 38%;
+  }
+}
+@media (min-width: 600px) and (max-width: 900px) {
+  .immersive .story-section,
+  .immersive .story-section:not(.hero) {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+  .immersive .chapter-panel,
+  .immersive .hero .chapter-panel {
+    padding: 35px;
+  }
+  .immersive .project-art {
+    height: 240px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .immersive .chapter-panel {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Keep lighting controls reachable above the foreground panels. */
+@media (min-width: 901px) {
+  .immersive .scene-topline {
+    left: 5%;
+    right: auto;
+  }
+  .immersive .scene-controls {
+    position: fixed;
+    top: 108px;
+    right: 5%;
+  }
+}
+/* Chapter labels already live in the dock; avoid duplicate text behind panels. */
+.immersive .scene-caption > div:first-child {
+  display: none;
+}

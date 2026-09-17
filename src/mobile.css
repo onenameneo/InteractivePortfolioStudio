@@ -1,0 +1,178 @@
+/* Small-screen composition: a room above a comfortable reading surface. */
+@media (max-width: 900px) {
+  .immersive .site-header {
+    margin: 0;
+    padding: env(safe-area-inset-top) 5% 0;
+    height: calc(68px + env(safe-area-inset-top));
+    background: linear-gradient(#f5f2eaf5, #f5f2ea99);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #dedfcf80;
+  }
+  .immersive .header-contact {
+    min-height: 44px;
+    padding: 10px 15px;
+    gap: 12px;
+  }
+  .immersive .scene-topline {
+    display: none;
+  }
+  .immersive .scene-caption {
+    top: calc(80px + env(safe-area-inset-top));
+    right: 4%;
+  }
+  .immersive .scene-controls {
+    gap: 6px;
+  }
+  .immersive .scene-controls button {
+    width: 44px;
+    height: 44px;
+    background: #f8f6eee6;
+  }
+  .immersive .story-section,
+  .immersive .story-section:not(.hero) {
+    min-height: 110svh;
+    padding: 32svh 4% 17svh;
+  }
+  .immersive .story-section.hero {
+    padding-top: 40svh;
+  }
+  .immersive .chapter-panel,
+  .immersive .hero .chapter-panel {
+    padding: 26px 22px;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #faf8f1f5, #f4f1e7ed);
+    box-shadow: 0 12px 40px #3f482e12;
+  }
+  .immersive .hero h1 {
+    font-size: clamp(36px, 10.7vw, 60px);
+    margin: 20px 0 24px;
+  }
+  .immersive .hero .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+  .immersive .hero .intro-text,
+  .immersive .section-intro,
+  .immersive .project-card > p,
+  .immersive .timeline p {
+    font-size: 13px;
+    line-height: 1.85;
+  }
+  .immersive .hero .hero-actions {
+    gap: 16px;
+  }
+  .immersive .hero .scroll-prompt {
+    margin-top: 20px;
+  }
+  .immersive .story-section h2 {
+    font-size: clamp(36px, 10vw, 48px);
+    margin-bottom: 20px;
+  }
+  .immersive .section-kicker {
+    margin-bottom: 24px;
+  }
+  .immersive .section-intro {
+    margin-bottom: 26px;
+  }
+  .immersive .project-art {
+    height: 166px;
+    border-radius: 10px;
+  }
+  .immersive .project-heading {
+    margin-top: 16px;
+  }
+  .immersive .email-row {
+    gap: 8px;
+  }
+  .immersive .email-row .icon-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .immersive .email-link {
+    font-size: clamp(18px, 5.1vw, 28px);
+  }
+  .immersive .chapter-dock {
+    left: 12px;
+    right: 12px;
+    bottom: calc(8px + env(safe-area-inset-bottom));
+    transform: none;
+    max-width: none;
+    gap: 3px;
+    padding: 6px;
+    border-radius: 22px;
+    background: #faf8f1f5;
+    box-shadow: 0 5px 30px #303f3020;
+  }
+  .immersive .chapter-dock button {
+    flex: 1;
+    min-width: 0;
+    height: 48px;
+    padding: 4px 0;
+    border-radius: 16px;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+  }
+  .immersive .chapter-dock button > b,
+  .immersive .chapter-dock button.active > b {
+    display: block;
+    max-width: none;
+    opacity: 1;
+    margin: 0;
+    font-size: 10px;
+  }
+  .immersive .chapter-dock button > span {
+    font-size: 8px;
+    opacity: 0.7;
+  }
+  .project-dialog {
+    width: calc(100% - 20px);
+    max-height: calc(
+      100dvh - 32px - env(safe-area-inset-top) - env(safe-area-inset-bottom)
+    );
+    border-radius: 22px;
+    overscroll-behavior: contain;
+  }
+  .project-dialog .dialog-close {
+    width: 44px;
+    height: 44px;
+    position: sticky;
+    top: 12px;
+    margin: 12px 12px -56px auto;
+    z-index: 3;
+    background: #faf8f1f5;
+  }
+  .project-dialog .dialog-content {
+    padding: 26px 22px 32px;
+  }
+  .dialog-content-image {
+    max-height: 240px;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 360px) {
+  .immersive .chapter-panel,
+  .immersive .hero .chapter-panel {
+    padding: 24px 18px;
+  }
+  .immersive .hero .hero-actions {
+    gap: 12px;
+  }
+  .immersive .hero-actions .solid-button {
+    padding: 12px 14px;
+    gap: 14px;
+  }
+  .immersive .chapter-dock button > b {
+    font-size: 9px;
+  }
+}
+@media (max-width: 900px) and (orientation: landscape) {
+  .immersive .story-section.hero {
+    padding-top: 120px;
+  }
+  .immersive .story-section,
+  .immersive .story-section:not(.hero) {
+    padding-bottom: 100px;
+  }
+}

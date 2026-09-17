@@ -1,0 +1,710 @@
+.login-page {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 60px 24px;
+  background:
+    radial-gradient(ellipse at 85% 70%, #dfe4d5 0, transparent 55%), #f5f2ea;
+  overflow: hidden;
+}
+.login-back {
+  position: absolute;
+  top: 30px;
+  left: 35px;
+  font-size: 12px;
+  color: #7d8971;
+}
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  z-index: 1;
+}
+.login-mark {
+  font: 58px var(--serif);
+  color: #466046;
+  margin-bottom: 30px;
+}
+.login-card h1 {
+  font-family: var(--serif), "Noto Sans SC", sans-serif;
+  font-size: 38px;
+  font-weight: 400;
+  line-height: 1.4;
+  letter-spacing: -1px;
+  margin: 15px 0;
+}
+.login-card h1 em {
+  font-style: normal;
+  color: #80916d;
+}
+.login-card > p {
+  font-size: 13px;
+  color: #89927e;
+  margin-bottom: 30px;
+}
+.login-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.login-card label {
+  font-size: 11px;
+  color: #727f66;
+}
+.login-card input {
+  border: 1px solid #cdd4bf;
+  background: #fffdf5;
+  padding: 14px;
+  border-radius: 5px;
+  outline: none;
+  width: 100%;
+}
+.login-card input:focus {
+  border-color: #6a8256;
+  box-shadow: 0 0 0 3px #7b916312;
+}
+.login-card > small {
+  font-size: 10px;
+  display: block;
+  color: #a0a58f;
+  margin-top: 25px;
+  line-height: 1.8;
+}
+.login-decoration {
+  position: absolute;
+  bottom: -30px;
+  right: -20px;
+  font: 200px var(--serif);
+  font-style: italic;
+  color: #cad2bd66;
+  letter-spacing: -8px;
+  pointer-events: none;
+}
+.admin-layout {
+  display: flex;
+  min-height: 100svh;
+  background: #f7f6ef;
+}
+.admin-sidebar {
+  width: 240px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-right: 1px solid #dfe3d4;
+  padding: 35px 25px;
+  display: flex;
+  flex-direction: column;
+  background: #f0f1e7;
+}
+.admin-sidebar .wordmark {
+  align-self: flex-start;
+  margin-bottom: 65px;
+  font-size: 33px;
+}
+.admin-nav-title {
+  font-size: 9px;
+  color: #a1aa91;
+  letter-spacing: 2px;
+  padding-left: 13px;
+  margin-bottom: 17px;
+}
+.admin-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.admin-sidebar nav button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 13px;
+  border-radius: 5px;
+  font-size: 12px;
+  text-align: left;
+  color: #7c896c;
+}
+.admin-sidebar nav button > span {
+  font-size: 9px;
+  color: #a2ad95;
+}
+.admin-sidebar nav button > b {
+  font-size: 9px;
+  margin-left: auto;
+  font-weight: 400;
+}
+.admin-sidebar nav button.active {
+  background: #e0e6d3;
+  color: #3c583c;
+}
+.admin-sidebar nav button.active > span {
+  color: #637953;
+}
+.admin-sidebar-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 19px;
+  padding: 30px 13px 0;
+  border-top: 1px solid #d9dfce;
+}
+.admin-sidebar-bottom a,
+.admin-sidebar-bottom button {
+  font-size: 11px;
+  text-align: left;
+  padding: 0;
+  color: #889477;
+}
+.admin-main {
+  margin-left: 240px;
+  width: calc(100% - 240px);
+}
+.admin-toolbar {
+  min-height: 90px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #f7f6eff5;
+  border-bottom: 1px solid #e1e4d7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  backdrop-filter: blur(12px);
+  gap: 20px;
+}
+.admin-toolbar > div:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.save-state {
+  font-size: 11px;
+  color: #7a8d65;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.save-state > i {
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  background: #7e9369;
+}
+.save-state.dirty {
+  color: #a9884c;
+}
+.save-state.dirty > i {
+  background: #b59c62;
+}
+.admin-toolbar small {
+  font-size: 9px;
+  color: #a0a78f;
+  margin-left: 12px;
+}
+.admin-actions {
+  display: flex;
+  gap: 10px;
+}
+.admin-toolbar button {
+  font-size: 11px;
+  min-height: 39px;
+  padding: 10px 17px;
+}
+.admin-body {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 45px 40px 25px;
+}
+.admin-title {
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  align-items: center;
+  margin-bottom: 28px;
+}
+.admin-title h1 {
+  font-size: 29px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin: 12px 0;
+}
+.admin-title p {
+  font-size: 11px;
+  color: #929b82;
+  margin-bottom: 0;
+  line-height: 1.9;
+}
+.admin-title > .solid-button {
+  white-space: nowrap;
+  flex: none;
+  font-size: 11px;
+  padding: 10px 15px;
+  min-height: 40px;
+}
+.admin-demo {
+  display: flex;
+  gap: 14px;
+  padding: 17px 20px;
+  background: #edefdf;
+  border: 1px solid #dfe4ce;
+  border-radius: 6px;
+  margin-bottom: 25px;
+}
+.admin-demo > span {
+  font-size: 23px;
+  color: #97a67e;
+}
+.admin-demo strong {
+  font-size: 11px;
+  font-weight: 500;
+  color: #798969;
+}
+.admin-demo p {
+  font-size: 10px;
+  color: #9ca58b;
+  margin: 4px 0 0;
+}
+.editor-fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+}
+.editor-card {
+  border: 1px solid #dde2d1;
+  background: #fffdf6;
+  border-radius: 7px;
+  padding: 26px;
+  margin-bottom: 22px;
+}
+.editor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+}
+.field.wide {
+  grid-column: 1 / -1;
+}
+.field label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #68775c;
+}
+.field label > span {
+  color: #ab8762;
+}
+.field input,
+.field textarea,
+.field select {
+  border: 1px solid #dce1cf;
+  background: #f9f9f1;
+  color: #55684b;
+  padding: 12px;
+  border-radius: 4px;
+  outline: none;
+  font-size: 12px;
+  max-width: 100%;
+  width: 100%;
+  line-height: 1.7;
+  transition: border-color 0.2s;
+}
+.field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.image-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.image-preview {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px;
+  border: 1px solid #e1e6d8;
+  border-radius: 5px;
+  background: #f4f5eb;
+}
+.image-preview img {
+  width: 92px;
+  height: 58px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 3px;
+  background: #e0e6d7;
+}
+.image-preview button {
+  color: #a27761;
+  font-size: 10px;
+  padding: 6px 0;
+}
+.image-url-input {
+  margin-top: 2px;
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  border-color: #8da479;
+  box-shadow: 0 0 0 3px #748f5810;
+}
+.field small {
+  font-size: 10px;
+  color: #a4ad95;
+  line-height: 1.6;
+}
+.checkbox-field {
+  position: relative;
+  padding-left: 45px;
+}
+.checkbox-field input {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 23px;
+  height: 23px;
+  accent-color: #4f6b3f;
+}
+.editor-card > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  padding-bottom: 19px;
+  border-bottom: 1px solid #e9ecdf;
+  gap: 15px;
+}
+.editor-card > header > div:first-child {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  min-width: 0;
+}
+.item-number {
+  font: 25px var(--serif);
+  font-style: italic;
+  color: #afba9f;
+}
+.editor-card > header strong {
+  font-size: 13px;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+}
+.item-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex: none;
+}
+.item-actions .icon-btn {
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+.delete-button {
+  font-size: 10px;
+  color: #b28a72;
+  padding: 8px;
+}
+.delete-confirm {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #f3eadd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 11px;
+  color: #a07658;
+}
+.delete-confirm button {
+  font-size: 11px;
+  border-bottom: 1px solid;
+  padding: 3px;
+}
+.editor-empty {
+  padding: 65px 20px;
+  text-align: center;
+  border: 1px dashed #d4ddc5;
+  border-radius: 8px;
+  color: #8e9e7c;
+}
+.editor-empty > span {
+  font: 50px var(--serif);
+}
+.editor-empty h2 {
+  font-size: 20px;
+  font-weight: 400;
+}
+.editor-empty p {
+  font-size: 12px;
+}
+.form-error {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #9f624a;
+  background: #f7e9e1;
+  border: 1px solid #ebd4c6;
+  padding: 12px 15px;
+  border-radius: 5px;
+  margin-bottom: 18px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.form-success {
+  background: #e6eeda;
+  border: 1px solid #d7e4c6;
+  padding: 13px 17px;
+  border-radius: 5px;
+  font-size: 11px;
+  color: #66844c;
+  margin-bottom: 18px;
+}
+.admin-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #a3ad93;
+  font-size: 9px;
+  padding: 20px 0;
+  flex-wrap: wrap;
+}
+.admin-footer span {
+  font-size: 9px;
+}
+@media (max-width: 1000px) {
+  .admin-sidebar {
+    width: 195px;
+    padding: 30px 16px;
+  }
+  .admin-main {
+    margin-left: 195px;
+    width: calc(100% - 195px);
+  }
+  .admin-body {
+    padding: 35px 25px;
+  }
+  .admin-toolbar {
+    padding: 15px 25px;
+  }
+  .admin-title {
+    align-items: flex-start;
+  }
+  .admin-title > .solid-button {
+    margin-top: 20px;
+  }
+  .editor-card {
+    padding: 20px;
+  }
+}
+@media (max-width: 760px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+  .admin-sidebar {
+    position: relative;
+    width: 100%;
+    padding: 23px 20px 15px;
+    border-right: 0;
+    border-bottom: 1px solid #d9e0cb;
+  }
+  .admin-sidebar .wordmark {
+    margin-bottom: 23px;
+    font-size: 28px;
+  }
+  .admin-nav-title {
+    display: none;
+  }
+  .admin-sidebar nav {
+    flex-direction: row;
+    gap: 5px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+  .admin-sidebar nav button {
+    white-space: nowrap;
+    flex: none;
+    padding: 10px;
+    font-size: 10px;
+    gap: 8px;
+  }
+  .admin-sidebar nav button > span {
+    display: none;
+  }
+  .admin-sidebar nav button > b {
+    font-size: 8px;
+  }
+  .admin-sidebar-bottom {
+    position: absolute;
+    top: 31px;
+    right: 20px;
+    border: 0;
+    padding: 0;
+    gap: 10px;
+    flex-direction: row;
+  }
+  .admin-sidebar-bottom a,
+  .admin-sidebar-bottom button {
+    font-size: 9px;
+  }
+  .admin-sidebar-bottom button:nth-child(2) {
+    display: none;
+  }
+  .admin-main {
+    margin: 0;
+    width: 100%;
+  }
+  .admin-toolbar {
+    padding: 12px 18px;
+    min-height: 76px;
+    gap: 10px;
+  }
+  .admin-toolbar button {
+    padding: 10px 12px;
+    font-size: 10px;
+    min-height: 40px;
+  }
+  .admin-actions {
+    gap: 6px;
+  }
+  .save-state {
+    font-size: 9px;
+  }
+  .admin-toolbar small {
+    font-size: 8px;
+  }
+  .admin-body {
+    padding: 28px 18px;
+  }
+  .admin-title {
+    gap: 14px;
+  }
+  .admin-title h1 {
+    font-size: 25px;
+  }
+  .admin-title p {
+    font-size: 10px;
+  }
+  .admin-title > .solid-button {
+    font-size: 9px;
+    padding: 9px 11px;
+  }
+  .admin-demo {
+    padding: 14px;
+    gap: 10px;
+  }
+  .admin-demo strong {
+    font-size: 10px;
+  }
+  .admin-demo p {
+    font-size: 9px;
+  }
+  .editor-card {
+    padding: 19px 15px;
+  }
+  .editor-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .field input,
+  .field textarea,
+  .field select {
+    font-size: 16px;
+    padding: 10px;
+  }
+  .field label {
+    font-size: 11px;
+  }
+  .field small {
+    font-size: 10px;
+  }
+  .editor-card > header strong {
+    font-size: 12px;
+  }
+  .item-number {
+    font-size: 21px;
+  }
+  .editor-card > header > div:first-child {
+    gap: 8px;
+  }
+  .editor-card > header {
+    gap: 10px;
+  }
+  .item-actions {
+    gap: 3px;
+  }
+  .item-actions .icon-btn {
+    width: 30px;
+    height: 34px;
+  }
+  .delete-button {
+    padding: 8px 4px;
+  }
+  .login-back {
+    left: 24px;
+    top: 25px;
+  }
+  .login-card h1 {
+    font-size: 34px;
+  }
+  .login-card input {
+    font-size: 16px;
+  }
+  .login-decoration {
+    font-size: 130px;
+    bottom: -5px;
+  }
+  .login-card > small {
+    font-size: 9px;
+  }
+  .admin-footer {
+    font-size: 8px;
+  }
+  .admin-sidebar-bottom button:last-child {
+    color: #a1846a;
+  }
+}
+
+.admin-title p,
+.field small,
+.admin-demo p {
+  color: #79866b;
+}
+.admin-demo strong,
+.admin-sidebar-bottom a,
+.admin-sidebar-bottom button {
+  color: #647656;
+}
+.admin-nav-title,
+.admin-toolbar small,
+.admin-footer {
+  color: #77866a;
+}
+
+.admin-actions button {
+  gap: 8px;
+}
+.admin-sidebar-bottom a,
+.admin-sidebar-bottom button,
+.delete-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.form-success {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.form-success > .ui-icon {
+  margin-top: 2px;
+}

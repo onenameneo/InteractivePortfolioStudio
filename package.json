@@ -1,0 +1,35 @@
+{
+  "name": "neo-studio-resume",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "node --watch --watch-path=server server/index.js",
+    "build": "vite build",
+    "start": "node server/index.js --production",
+    "test": "node --test tests/*.test.js",
+    "check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/dm-serif-display": "^5.3.0",
+    "express": "^5.2.1",
+    "lucide-react": "^1.41.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "three": "^0.183.0",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@types/three": "^0.183.0",
+    "@vitejs/plugin-react": "^5.1.0",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.0"
+  }
+}
