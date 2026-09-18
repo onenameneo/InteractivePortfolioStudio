@@ -861,7 +861,8 @@ button {
   gap: 12px 28px;
   margin: 20px 0 45px;
 }
-.contact-links .contact-link {
+.contact-links .contact-link,
+.hero-actions .hero-external-link {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -888,7 +889,8 @@ button {
   font-weight: 500;
   white-space: nowrap;
 }
-.contact-links .contact-link > .ui-icon {
+.contact-links .contact-link > .ui-icon,
+.hero-actions .hero-external-link > .ui-icon {
   flex: none;
   color: #6c825f;
   opacity: 0;
@@ -1082,6 +1084,17 @@ button {
 .resume-page article {
   margin-bottom: 25px;
   break-inside: avoid;
+}
+.resume-project-image {
+  display: block;
+  width: min(100%, 560px);
+  max-height: 280px;
+  margin: 18px auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  object-fit: contain;
+  object-position: center;
 }
 .resume-page small {
   font-size: 12px;

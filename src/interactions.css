@@ -85,11 +85,14 @@ a .ui-icon {
   .text-link:hover .lucide-arrow-down {
     transform: translateY(3px);
   }
-  .contact-links .contact-link:hover {
+  .contact-links .contact-link:hover,
+  .hero-actions .hero-external-link:hover {
     color: #2e4434;
   }
   .contact-links .contact-link:hover > .ui-icon,
-  .contact-links .contact-link:focus-visible > .ui-icon {
+  .contact-links .contact-link:focus-visible > .ui-icon,
+  .hero-actions .hero-external-link:hover > .ui-icon,
+  .hero-actions .hero-external-link:focus-visible > .ui-icon {
     opacity: 1;
     transform: translate(2px, -2px) scale(1);
   }

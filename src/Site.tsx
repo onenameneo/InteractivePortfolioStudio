@@ -184,6 +184,14 @@ function Resume({ content }: { content: Content }) {
             {x.role} · {x.stack}
           </p>
           <p>{x.description}</p>
+          {x.coverUrl && (
+            <img
+              className="resume-project-image"
+              src={x.coverUrl}
+              alt={`${x.title}项目图片`}
+              loading="lazy"
+            />
+          )}
           <p>{x.result}</p>
         </article>
       ))}
@@ -518,13 +526,45 @@ export default function Site() {
               查看作品
             </button>
             <a
-              className="text-link"
+              className="contact-link hero-external-link"
               href={p.resumeUrl || "/resume"}
               target="_blank"
               rel="noreferrer"
             >
-              查看简历
+              <span className="contact-link-copy">
+                <small>PROFILE</small>
+                <strong>查看简历</strong>
+              </span>
+              <Icon name="arrow-up-right" size={14} />
             </a>
+            {p.websiteUrl && (
+              <a
+                className="contact-link hero-external-link"
+                href={p.websiteUrl}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="contact-link-copy">
+                  <small>WEB</small>
+                  <strong>个人网站</strong>
+                </span>
+                <Icon name="arrow-up-right" size={14} />
+              </a>
+            )}
+            {p.github && (
+              <a
+                className="contact-link hero-external-link"
+                href={p.github}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span className="contact-link-copy">
+                  <small>CODE</small>
+                  <strong>GitHub</strong>
+                </span>
+                <Icon name="arrow-up-right" size={14} />
+              </a>
+            )}
           </div>
         </Chapter>
         <Chapter
