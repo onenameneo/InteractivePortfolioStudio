@@ -211,7 +211,25 @@ function Resume({ content }: { content: Content }) {
           <strong>{x.title}</strong> — {x.items}
         </p>
       ))}
-      {p.github && <a href={p.github}>GitHub</a>}
+      {(p.websiteUrl || p.github) && (
+        <div className="resume-links" aria-label="外部链接">
+          {p.websiteUrl && (
+            <a
+              className="resume-link"
+              href={p.websiteUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              个人网站
+            </a>
+          )}
+          {p.github && (
+            <a className="resume-link" href={p.github}>
+              GitHub
+            </a>
+          )}
+        </div>
+      )}
     </main>
   );
 }

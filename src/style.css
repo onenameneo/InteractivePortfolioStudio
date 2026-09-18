@@ -1108,6 +1108,37 @@ button {
   font-size: 11px;
   color: #957b55;
 }
+.resume-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid #ddd;
+  font-size: 13px;
+}
+.resume-link {
+  color: #3e6848;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 160ms ease;
+}
+.resume-link::after {
+  content: " ↗";
+  display: inline-block;
+  text-decoration: none;
+}
+.resume-link + .resume-link {
+  margin-left: 16px;
+  padding-left: 16px;
+  border-left: 1px solid #ccd4cc;
+}
+.resume-link:hover,
+.resume-link:focus-visible {
+  color: #1f4028;
+}
 @media (min-width: 1600px) {
   .story-content {
     width: 35%;
