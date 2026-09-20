@@ -173,7 +173,7 @@ function Resume({ content }: { content: Content }) {
         {p.role} · {p.location}
       </p>
       {p.email && <p>{p.email}</p>}
-      <p>{p.about}</p>
+      <p className="about-copy">{p.about}</p>
       <h2>项目</h2>
       {content.projects.map((x) => (
         <article key={x.id}>
@@ -660,7 +660,7 @@ export default function Site() {
           </div>
           <div className="about-note">
             <span>“</span>
-            <p>{p.about}</p>
+            <p className="about-copy">{p.about}</p>
             <small>— {p.name}, ON THE WAY</small>
           </div>
         </Chapter>

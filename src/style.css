@@ -746,6 +746,9 @@ button {
   color: #7c866f;
   margin-bottom: 20px;
 }
+.about-copy {
+  white-space: pre-line;
+}
 .about-note small {
   font-size: 8px;
   letter-spacing: 1.4px;
