@@ -44,7 +44,7 @@ const fields: Record<Section, Field[]> = {
       key: "resumeUrl",
       label: "外部简历链接",
       type: "url",
-      hint: "留空时使用网站内置简历，可打印为 PDF。",
+      hint: "留空时使用网站内置简历，可导出为 PDF 或 Markdown。",
     },
     {
       key: "demo",

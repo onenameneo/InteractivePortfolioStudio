@@ -9,6 +9,7 @@ import {
 } from "react";
 import { api, type Content, type Project } from "./types";
 import Icon from "./Icon";
+import { resumeMarkdown } from "./resume-export";
 const Room = lazy(() => import("./Room"));
 const chapters = [
   ["hello", "初次见面", "THE STUDIO"],
@@ -155,15 +156,70 @@ function ProjectDialog({
 }
 function Resume({ content }: { content: Content }) {
   const { profile: p } = content;
+  const exportRef = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    const dismiss = (event: PointerEvent) => {
+      const menu = exportRef.current;
+      if (menu && !menu.contains(event.target as Node)) menu.open = false;
+    };
+    document.addEventListener("pointerdown", dismiss);
+    return () => document.removeEventListener("pointerdown", dismiss);
+  }, []);
+  const closeExport = () => {
+    if (exportRef.current) {
+      exportRef.current.open = false;
+      exportRef.current.querySelector("summary")?.focus();
+    }
+  };
+  const downloadMarkdown = () => {
+    const blob = new Blob([resumeMarkdown(content, window.location.href)], {
+      type: "text/markdown;charset=utf-8",
+    });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `${p.name.replace(/[\\/:*?"<>|\x00-\x1f]/g, "_") || "简历"}-简历.md`;
+    document.body.append(anchor);
+    anchor.click();
+    anchor.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    closeExport();
+  };
   return (
     <main className="resume-page">
       <div className="resume-actions">
         <a href="/">
           <Icon name="arrow-left" /> 返回工作室
         </a>
-        <button className="solid-button" onClick={() => window.print()}>
-          打印 / 保存 PDF
-        </button>
+        <details
+          className="resume-export"
+          ref={exportRef}
+          onKeyDown={(event) => {
+            if (event.key === "Escape") closeExport();
+          }}
+          onBlur={(event) => {
+            if (!event.currentTarget.contains(event.relatedTarget))
+              event.currentTarget.open = false;
+          }}
+        >
+          <summary className="solid-button">
+            导出 <Icon name="arrow-down" size={14} />
+          </summary>
+          <div className="resume-export-options">
+            <button
+              type="button"
+              onClick={() => {
+                closeExport();
+                window.print();
+              }}
+            >
+              PDF
+            </button>
+            <button type="button" onClick={downloadMarkdown}>
+              Markdown
+            </button>
+          </div>
+        </details>
       </div>
       {p.demo && (
         <p className="demo-note">示例简历 · 经历和项目信息待本人替换</p>
